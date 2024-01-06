@@ -1,0 +1,53 @@
+#include <iostream>
+#include <limits>
+
+void program19() {
+    int k;
+    std::cout << "vvedite vozrast [1;200]:";
+
+    std::cin >> k;
+    if (std::cin.fail()) {
+        std::cout << "\nInput error!!!";
+
+        std::cin.clear();
+
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return;
+    }
+
+    if (k < 1 || k > 200)
+    {
+        std::cout << "vozrast dolzhen byt v promezhutke [1;200]\n";
+        return;
+    }
+
+    if (k%100 >= 10 && k%100 <= 19)
+    {
+        std::cout << "emu " << k << " let\n";
+        return;
+    }
+    int last = k % 10;
+    if (last == 0 || (last >= 5 && last <= 9))
+    {
+        std::cout << "emu " << k << " let\n";
+    } else if (last == 1)
+    {
+        std::cout << "emu " << k << " god\n";
+    } else
+    {
+        std::cout << "emu " << k << " goda\n";
+    }
+
+}
+int main()
+{
+    bool answer;
+    program19();
+    std::cout << "\nOne more? (1 - yes, 0 - no): ";
+    std::cin >> answer;
+    if (answer)
+    {
+        main();
+    }
+    return 0;
+}
