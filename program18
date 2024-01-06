@@ -1,0 +1,75 @@
+#include <iostream>
+#include <limits>
+
+void program18() {
+    int x ;
+    double y,res;
+    std::cout << "Vyberite edinicu izmereniya (1-km 2-m 3-dm 4-cm 5-mm)\n";
+    std::cin >> x;
+    
+    if (std::cin.fail()) {
+        std::cout << "\nInput error!!!";
+
+        std::cin.clear();
+
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return;
+    }
+    std::cout << "vvedite dlinu izmerenia\n";
+    std::cin >> y;
+    if (y<0)
+    {
+        std::cout << "dlina dolzhna byt bolshe 0";
+    }
+    if (std::cin.fail()) {
+        std::cout << "\nInput error!!!";
+
+        std::cin.clear();
+
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return;
+    }
+    switch (x)
+    {
+        case 1:
+            res = y * 1000;
+            std::cout << y << "km" << "=" << res << "m\n";
+            break;
+        case 2:
+            res = y * 1;
+            std::cout << y << "m" << "=" << res << "m\n";
+            break;
+        case 3:
+            res = y * 0.1;
+            std::cout << y << "dm" << "=" << res << "m\n";
+            break;
+        case 4:
+            res = y * 0.01;
+            std::cout << y << "cm" << "=" << res << "m\n";
+            break;
+        case 5:
+            res = y * 0.001;
+            std::cout << y << "mm" << "=" << res << "m\n";
+            break;
+        default:
+            std::cout << "neverno vybrana edinica izmerenia\n";
+            return;
+
+    }
+
+
+
+
+}
+int main()
+{
+    bool answer;
+    program18();
+    std::cout << "\nOne more? (1 - yes, 0 - no): ";
+    std::cin >> answer;
+    if (answer)
+    {
+        main();
+    }
+    return 0;
+}
