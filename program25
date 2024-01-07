@@ -1,0 +1,48 @@
+#include <iostream>
+#include <limits>
+
+void program25() {
+    std::cout << "Vvedite n";
+    int n;
+    std::cin >> n;
+    if (std::cin.fail()) {
+        std::cout << "\nInput error!!!";
+
+        std::cin.clear();
+
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return;
+    }
+    if (n<=0)
+    {
+        std::cout << "chislo dolzhno byt bolse 0 ";
+        return;
+    }
+    for (int a = 1; a <= 9; a++)
+    {
+        for (int b = 0; b <= 9; b++)
+        {
+            for (int c = 0; c <= 9; c++)
+            {
+                if (a+b+c < n)
+                {
+                    std::cout << a << b << c << "\n";
+                }
+            }
+        }
+    }
+}
+
+
+int main()
+{
+    bool answer;
+    program25();
+    std::cout << "\nOne more? (1 - yes, 0 - no): ";
+    std::cin >> answer;
+    if (answer)
+    {
+        main();
+    }
+    return 0;
+}
