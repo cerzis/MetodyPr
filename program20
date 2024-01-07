@@ -1,7 +1,7 @@
 #include <iostream>
 #include <limits>
 
-void program19() {
+void program20() {
     double a, b , res ;
     char operation;
     std::cout << "vvedite dva chisla:";
@@ -61,7 +61,7 @@ void program19() {
 int main()
 {
     bool answer;
-    program19();
+    program20();
     std::cout << "\nOne more? (1 - yes, 0 - no): ";
     std::cin >> answer;
     if (answer)
