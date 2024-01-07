@@ -1,0 +1,72 @@
+#include <iostream>
+#include <limits>
+
+void program19() {
+    double a, b , res ;
+    char operation;
+    std::cout << "vvedite dva chisla:";
+    std::cin >> a >> b;
+    if (std::cin.fail()) {
+        std::cout << "\nInput error!!!";
+
+        std::cin.clear();
+
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return;
+    }
+
+    std::cout << "vvedite operaciy (+,-,/,*):";
+    std::cin >> operation;
+
+    if (std::cin.fail()) {
+        std::cout << "\nInput error!!!";
+
+        std::cin.clear();
+
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return;
+    }
+
+    switch (operation) {
+        case '+':
+            res = a + b;
+            break;
+        case '-':
+            res = a - b;
+            if (b < 0)
+            {
+                std::cout << a << " " << operation << " (" << b << ")" <<  " = " << res ;
+                return;
+            }
+            break;
+        case '*':
+            res = a * b;
+            break;
+        case '/':
+            if (b == 0)
+            {
+                std::cout << "na nol delit nelzya\n";
+                return;
+            }
+            res = double(a) / b;
+            break;
+        default:
+            std::cout << "nepravilnaya operciya\n";
+            return;
+    }
+
+    std::cout << a << " " << operation << " " << b <<  " = " << res << std::endl;
+}
+
+int main()
+{
+    bool answer;
+    program19();
+    std::cout << "\nOne more? (1 - yes, 0 - no): ";
+    std::cin >> answer;
+    if (answer)
+    {
+        main();
+    }
+    return 0;
+}
