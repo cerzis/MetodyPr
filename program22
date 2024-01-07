@@ -1,0 +1,71 @@
+#include <iostream>
+#include <limits>
+
+void program22() {
+    std::cout << "Vvedite nachalnii kapital (k>0): ";
+    float k;
+    std::cin >> k;
+    if (std::cin.fail()) {
+        std::cout << "\nInput error!!!";
+
+        std::cin.clear();
+
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return;
+    }
+
+    std::cout << "Vvedte procent mesyachnoi pribyli (p>=0): ";
+    float p;
+    std::cin >> p;
+    if (std::cin.fail()) {
+        std::cout << "\nInput error!!!";
+
+        std::cin.clear();
+
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return;
+    }
+
+    std::cout << "Vvedite neobhodimuy summu (s>0): ";
+    float s;
+    std::cin >> s;
+    if (std::cin.fail())
+        if (std::cin.fail()) {
+            std::cout << "\nInput error!!!";
+
+            std::cin.clear();
+
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            return;
+        }
+
+    if (k < 0 || p < 0 || s < 0 || s < k)
+    {
+        std::cout << "Nepravilno vvedeny chisla\n";
+        return;
+    }
+
+    int m = 0;
+    while (k < s)
+    {
+        k += k * (p / 100);
+        m++;
+
+        std::cout << "\nMesyac " << m << " = " << k;
+    }
+
+    std::cout << "\nVy dostignite neobhodimoi summy cherez " << m << " mesyac\n";
+}
+
+int main()
+{
+    bool answer;
+    program22();
+    std::cout << "\nOne more? (1 - yes, 0 - no): ";
+    std::cin >> answer;
+    if (answer)
+    {
+        main();
+    }
+    return 0;
+}
