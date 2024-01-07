@@ -1,0 +1,31 @@
+#include <iostream>
+#include <limits>
+
+void program24() {
+    int kol = 10;
+    srand((int) time(NULL));
+    for (int j = 0; j < 3; j++) {
+        int sum = 0;
+        for (int i = 0; i < kol; i++) {
+            int num = rand() % 10;
+            sum += num;
+
+            std::cout << num << " ";
+        }
+
+        std::cout << "Avg = " << sum / (float)kol << "\n";
+    }
+}
+
+int main()
+{
+    bool answer;
+    program24();
+    std::cout << "\nOne more? (1 - yes, 0 - no): ";
+    std::cin >> answer;
+    if (answer)
+    {
+        main();
+    }
+    return 0;
+}
