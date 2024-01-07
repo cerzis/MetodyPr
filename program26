@@ -1,0 +1,34 @@
+#include <iostream>
+#include <limits>
+
+void program26() {
+    int a1,a2,a3;
+    for (int i = 100; i <= 999; i++)
+    {
+         a1 = i / 100;
+         a2 = i / 10 % 10;
+         a3 = i % 10;
+
+        if (a1==a2 || a2==a3 || a1==a3)
+        {
+            if (a1!=a2 || a1!=a3 || a2!=a3)
+            {
+                std::cout << "\n" << i;
+            }
+        }
+    }
+
+
+}
+int main()
+{
+    bool answer;
+    program26();
+    std::cout << "\nOne more? (1 - yes, 0 - no): ";
+    std::cin >> answer;
+    if (answer)
+    {
+        main();
+    }
+    return 0;
+}
