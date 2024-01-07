@@ -1,0 +1,41 @@
+#include <iostream>
+#include <limits>
+
+void program21() {
+    std::cout << "Vvedite chislo\n ";
+
+    int a;
+    std::cin >> a;
+    if (std::cin.fail()) {
+        std::cout << "\nInput error!!!";
+
+        std::cin.clear();
+
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return;
+    }
+    a = abs(a);
+
+    int k = 0;
+
+    while (a > 0)
+    {
+        k++;
+        a = a / 10;
+    }
+
+    std::cout << "kolichestvo cifr: " << k ;
+}
+
+int main()
+{
+    bool answer;
+    program21();
+    std::cout << "\nOne more? (1 - yes, 0 - no): ";
+    std::cin >> answer;
+    if (answer)
+    {
+        main();
+    }
+    return 0;
+}
