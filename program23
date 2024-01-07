@@ -1,0 +1,44 @@
+#include <iostream>
+#include <limits>
+
+void program23() {
+    std::cout << "Vvedite posledovatelnost chisel (0 - stop):";
+
+    int current , prev = 0 , counter = 0;
+
+    while (true)
+    {
+        std::cin >> current;
+        if (std::cin.fail()) {
+            std::cout << "\nInput error!!!";
+
+            std::cin.clear();
+
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            return;
+        }
+
+        if (current == 0) break;
+
+        if (prev * current < 0)
+        {
+            counter++;
+        }
+        prev = current;
+    }
+
+    std::cout << "znak menyalsya " << counter << " raz\n";
+}
+
+int main()
+{
+    bool answer;
+    program23();
+    std::cout << "\nOne more? (1 - yes, 0 - no): ";
+    std::cin >> answer;
+    if (answer)
+    {
+        main();
+    }
+    return 0;
+}
