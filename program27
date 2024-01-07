@@ -1,0 +1,72 @@
+#include <iostream>
+#include <limits>
+
+void program27() {
+    std::cout << "Vvedite a/b (a,b > 0)\n";
+    int a,b;
+    std::cout << "a:";
+    std::cin >> a;
+    if (std::cin.fail()) {
+        std::cout << "\nInput error!!!";
+
+        std::cin.clear();
+
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return;
+    }
+    std::cout << "b:";
+    std::cin >> b;
+    if (std::cin.fail()) {
+        std::cout << "\nInput error!!!";
+
+        std::cin.clear();
+
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return;
+    }
+    if (a <= 0 || b <= 0)
+    {
+        std::cout << "chisla dolzhny byt bolse 0 \n";
+        return;
+    }
+    if (a == b)
+    {
+        std::cout << a << "/" << b << "=1";
+        return;
+    }
+    int min = 0;
+    if (a < b)
+    {
+        min = a;
+    }
+    else
+    {
+        min = b;
+    }
+    for (int i = min; i > 0; i--)
+    {
+        if (a % i == 0 && b % i == 0)
+        {
+            if (b/i == 1)
+            {
+                std::cout << a << "/" << b << "=" << a / i ;
+            } else{
+                std::cout << a << "/" << b << "=" << a / i << "/" << b / i ;
+            }
+            break;
+        }
+    }
+
+}
+int main()
+{
+    bool answer;
+    program27();
+    std::cout << "\nOne more? (1 - yes, 0 - no): ";
+    std::cin >> answer;
+    if (answer)
+    {
+        main();
+    }
+    return 0;
+}
