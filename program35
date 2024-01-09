@@ -1,0 +1,57 @@
+#include <iostream>
+#include <limits>
+
+
+void program35() {
+    int n = rand() % 1000 + 1;
+    bool flag = false;
+    std::cout << "Ugadaite chislo ot 1 do 1000" << '\n';
+    for (int i = 0; i < 10; i++) {
+        int a;
+        std::cin >> a;
+        if (std::cin.fail()) 
+        {
+            std::cout << "\nInput error!!!";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            return;
+        }
+
+        if (a == n) {
+            std::cout << "Pobeda eto chislo:" << n << '\n';
+            flag = true;
+            break;
+        }
+        if (a != n)
+        {
+            if (a < n)
+            {
+                std::cout << "chislo vyshe";
+            }
+
+            if (a > n)
+            {
+                std::cout << "chislo nizhe\n";
+            }
+            std::cout << "u vas eshe " << 10 - (i + 1) << " popytok\n" ;
+        }
+    }
+
+    if (!flag) {
+        std::cout << "Proigrysh:( Chislo bylo: " << n << '\n';
+    }
+}
+
+
+int main()
+{
+    bool answer;
+    program35();
+    std::cout << "\nOne more? (1 - yes, 0 - no): ";
+    std::cin >> answer;
+    if (answer)
+    {
+        main();
+    }
+    return 0;
+}
