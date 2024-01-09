@@ -1,0 +1,31 @@
+#include <iostream>
+#include <limits>
+
+
+void program38() {
+    {
+        for (int i = 1; i <= 10; i++) {
+            for (int j = 1; j <= 10; j++) {
+                if (i * j < 10)
+                    std::cout << " " << i * j << "  ";
+                else
+                    std::cout << i * j << "  ";
+            }
+
+            std::cout << "\n";
+        }
+    }
+}
+
+int main()
+{
+    bool answer;
+    program38();
+    std::cout << "\nOne more? (1 - yes, 0 - no): ";
+    std::cin >> answer;
+    if (answer)
+    {
+        main();
+    }
+    return 0;
+}
