@@ -1,0 +1,57 @@
+#include <iostream>
+#include <limits>
+#include <cmath>
+
+void program32() {
+    int n;
+    double x, s = 0;
+
+    std::cout << "Enter N: ";
+    std::cin >> n;
+    std::cout << "Enter X: ";
+    std::cin >> x;
+
+
+    if (std::cin.fail())
+    {
+        std::cout << "\nInput error!!!";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return;
+    }
+
+    if (n <= 0)
+    {
+        std::cout << "n dolzhno byt bolshe 0 0\n";
+        return;
+    }
+
+    for (int i = 1; i < n + 1; i++)
+    {
+        long f = 1;
+        for (int j = 1; j <= 2 * i - 1; j++)
+        {
+            f *= j;
+        }
+        double a = pow(x, (2 * i - 1)) / f;
+        if (i % 2 == 0) {
+            a = -a;
+        }
+        s += a;
+    }
+    std::cout << "Sum = " << s << '\n';
+}
+
+
+int main()
+{
+    bool answer;
+    program32();
+    std::cout << "\nOne more? (1 - yes, 0 - no): ";
+    std::cin >> answer;
+    if (answer)
+    {
+        main();
+    }
+    return 0;
+}
