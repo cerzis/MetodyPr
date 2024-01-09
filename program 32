@@ -1,0 +1,55 @@
+#include <iostream>
+#include <limits>
+
+void program32() {
+    std::cout << "Enter number: ";
+
+    int n;
+    std::cin >> n;
+    if (std::cin.fail()) {
+        std::cout << "\nInput error!!!";
+
+        std::cin.clear();
+
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return;
+    }
+
+
+    if (n <= 0)
+    {
+        std::cout << "Chislo dolzhno byt bolshe 0\n";
+        return;
+    }
+
+    for (int i = 2; i < n; i++)
+    {
+        bool flag = true;
+
+        for (int j = i - 1; j >= 2; j--)
+        {
+            if (i % j == 0)
+            {
+                flag = false;
+                break;
+            }
+        }
+
+        if (flag)
+        {
+            std::cout << i << " " ;
+        }
+    }
+}
+int main()
+{
+    bool answer;
+    program32();
+    std::cout << "\nOne more? (1 - yes, 0 - no): ";
+    std::cin >> answer;
+    if (answer)
+    {
+        main();
+    }
+    return 0;
+}
